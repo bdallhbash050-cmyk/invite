@@ -1,25 +1,82 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <title>دعوة خطوبة</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دعوة خطوبة </title>
+
+<style>
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    min-height:100vh;
+    background:#f8e8e8;
+    font-family:Arial,sans-serif;
+}
+
+.envelope{
+    position:relative;
+    width:220px;
+    height:150px;
+    background:#d85c5c;
+    cursor:pointer;
+}
+
+.flap{
+    position:absolute;
+    top:0;
+    width:0;
+    height:0;
+    border-left:110px solid transparent;
+    border-right:110px solid transparent;
+    border-top:75px solid #b94444;
+    transform-origin:top;
+    transition:0.6s;
+}
+
+.letter{
+    position:absolute;
+    top:20px;
+    left:10px;
+    width:200px;
+    height:110px;
+    background:white;
+    text-align:center;
+    padding-top:20px;
+    box-sizing:border-box;
+    transition:0.6s;
+    z-index:0;
+}
+
+.open .flap{
+    transform:rotateX(180deg);
+}
+
+.open .letter{
+    transform:translateY(-80px);
+}
+</style>
 </head>
+
 <body>
 
-<div class="container" onclick="openInvite()">
-    <div class="envelope">
-        <div class="flap" id="flap"></div>
-
-        <div class="letter" id="letter">
-            <h2>دعوة خطوبة 💍</h2>
-            <p>Abdallah Mahmoud  & Sorouk Mohamed</p>
-            <p>12/7/2026
-            <p>السيدة زينب بالقاهرة
-        </div>
+<div class="envelope" onclick="openEnvelope()">
+    <div class="flap"></div>
+    <div class="letter">
+        <h3>دعوة فرح 💍</h3>
+        <p>Abdallah Mahmoud ❤️ Shorouk Mohamed</p>
+        <p>السيدة زينب - القاهرة</p>
     </div>
 </div>
 
-<script src="script.js"></script>
+<script>
+function openEnvelope(){
+    document.querySelector('.envelope').classList.toggle('open');
+}
+</script>
+
 </body>
 </html>
